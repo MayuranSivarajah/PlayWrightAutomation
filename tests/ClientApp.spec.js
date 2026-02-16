@@ -52,10 +52,13 @@ const optionsCount = await dropdown.locator("button").count();
 for (let i=0; i<optionsCount; i++){
     const text = await dropdown.locator("button").nth(i).textContent();
     if (text.includes("India")){
-        await dropdown.locator("button").nth(i).click();
+        await dropdown.locator("button").nth(i+1).click();
         break;
     }
 }
-await page.pause();
+await expect(page.locator(".user__name [type='text']").first()).toHaveText("testmayu@email.com");
+await page.locator(".action__submit").click();
+await expect(page.locator(".hero-primary")).toHaveText(" Thankyou for the order. ");
+
 }
 );
