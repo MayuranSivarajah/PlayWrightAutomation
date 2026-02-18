@@ -74,5 +74,7 @@ for (let i=0; i<rowCount; i++){
         break;
     }
 }
+const orderIdDetails = await page.locator(".col-text").textContent();
+expect(orderId.includes(orderIdDetails)).toBeTruthy();
 }
 );
