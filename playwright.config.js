@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
+import { trace } from 'node:console';
 
 
 /**
@@ -17,7 +18,9 @@ const config = ({
 
   use: {
    browserName: "chromium",
-   headless : true
+   headless : true,
+    screenshot : "on",
+    trace : "retain-on-failure",
   },
 
   
